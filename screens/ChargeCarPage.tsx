@@ -1,28 +1,34 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import {View, Text, StyleSheet, Image} from "react-native";
 import stylesBase from "../styles/styles";
-import { LinearGradient } from "expo-linear-gradient";
-import { FC } from "react";
+import {LinearGradient} from "expo-linear-gradient";
+import {FC} from "react";
 import TitlePages from "../components/TitlePages";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStateType } from "../redux/store";
+import {useSelector} from "react-redux";
+import {RootStateType} from "../redux/store";
+import {useTranslation} from "react-i18next";
 
-const ChargeCarPage: FC<any> = ({ navigation }) => {
-    const dispatch = useDispatch();
+const ChargeCarPage: FC<any> = ({navigation}) => {
+    const {t} = useTranslation();
     const params = useSelector((state: RootStateType) => state.charge);
 
     const onPressGoBack = () => {
         navigation.goBack();
     };
+    const onPressSettings = () => {
+        navigation.navigate("SettingsPage");
+    };
     return (
         <LinearGradient
             colors={["#292C31", "#292C31", "#2D2C31"]}
             locations={[0, 0.7287, 1]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
             style={stylesBase.containerGradient}
         >
             <View style={stylesBase.container}>
-                <TitlePages onPressGoBack={onPressGoBack} text="CHARGING" />
+                <TitlePages onPressGoBack={onPressGoBack}
+                            text={t('chargeCarPage.text.title')}
+                            onPressSettings={onPressSettings}/>
                 <Image
                     source={require("../assets/carCharge.png")}
                     style={s.carImage}
@@ -39,7 +45,7 @@ const ChargeCarPage: FC<any> = ({ navigation }) => {
                     <Image
                         style={[
                             s.batteryCharge,
-                            { width: `${params.percent}%` },
+                            {width: `${params.percent}%`},
                         ]}
                         source={require("../assets/icons/batteryCharge.png")}
                     />

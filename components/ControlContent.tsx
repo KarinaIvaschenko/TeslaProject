@@ -10,6 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import {useTranslation} from "react-i18next";
 
 interface IControlContent {
     onPressLock: () => void;
@@ -24,6 +25,7 @@ const ControlContent: FC<IControlContent> = ({
     onPressCharge,
     onPressControl,
 }) => {
+    const { t } = useTranslation();
     return (
         <View style={s.controlContainer}>
             <ScrollView
@@ -39,7 +41,7 @@ const ControlContent: FC<IControlContent> = ({
                                 color="#808080"
                                 style={s.conrolImg}
                             />
-                            <Text style={s.controlText}>Lock</Text>
+                            <Text style={s.controlText}>{t('optionsCar.buttons.btnLock')}</Text>
                         </View>
                         <MaterialIcons
                             name="keyboard-arrow-right"
@@ -58,7 +60,7 @@ const ControlContent: FC<IControlContent> = ({
                                 color="#808080"
                                 style={s.conrolImg}
                             />
-                            <Text style={s.controlText}>Climate</Text>
+                            <Text style={s.controlText}>{t('optionsCar.buttons.btnClimate')}</Text>
                         </View>
                         <MaterialIcons
                             name="keyboard-arrow-right"
@@ -77,7 +79,7 @@ const ControlContent: FC<IControlContent> = ({
                                 color="#808080"
                                 style={s.conrolImg}
                             />
-                            <Text style={s.controlText}>Charge</Text>
+                            <Text style={s.controlText}>{t('optionsCar.buttons.btnCharge')}</Text>
                         </View>
                         <MaterialIcons
                             name="keyboard-arrow-right"
@@ -94,7 +96,7 @@ const ControlContent: FC<IControlContent> = ({
                                 source={require("../assets/openTrunk.png")}
                                 style={s.carTrunk}
                             />
-                            <Text style={s.controlText}>Control</Text>
+                            <Text style={s.controlText}>{t('optionsCar.buttons.btnControl')}</Text>
                         </View>
                         <MaterialIcons
                             name="keyboard-arrow-right"

@@ -5,14 +5,15 @@ import {
     TouchableWithoutFeedback,
     Image,
 } from "react-native";
-import { FC } from "react";
-import { FontAwesome } from "@expo/vector-icons";
+import {FC, useEffect, useState} from "react";
+import {Audio} from "expo-av";
+import {FontAwesome} from "@expo/vector-icons";
 import stylesBase from "../styles/styles";
-import { LinearGradient } from "expo-linear-gradient";
+import {LinearGradient} from "expo-linear-gradient";
 import OptionsCar from "../components/OptionsCar";
 import ControlContent from "../components/ControlContent";
 
-const HomePage: FC<any> = ({ navigation }) => {
+const HomePage: FC<any> = ({navigation}) => {
     const onPressLock = () => {
         navigation.navigate("OpenCarPage");
     };
@@ -28,12 +29,30 @@ const HomePage: FC<any> = ({ navigation }) => {
     const onPressCabinet = () => {
         navigation.navigate("CabinetPage");
     };
+
+    const [sound, setSound] = useState();
+
+    const playSound = async () => {
+        const {sound} = await Audio.Sound.createAsync(require('../assets/teslaSound.mp3')
+        );
+        setSound(sound);
+        await sound.playAsync();
+    }
+
+    useEffect(() => {
+        return sound
+            ? () => {
+                sound.unloadAsync();
+            }
+            : undefined;
+    }, [sound]);
+
     return (
         <LinearGradient
             colors={["#292C31", "#292C31", "#2D2C31"]}
             locations={[0, 0.7287, 1]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
             style={stylesBase.containerGradient}
         >
             <View style={s.infoCar}>
@@ -55,10 +74,12 @@ const HomePage: FC<any> = ({ navigation }) => {
                     />
                 </TouchableWithoutFeedback>
             </View>
-            <Image
-                source={require("../assets/carHome.png")}
-                style={s.carHomeImg}
-            />
+            <TouchableWithoutFeedback onPress={playSound}>
+                <Image
+                    source={require("../assets/carHome.png")}
+                    style={s.carHomeImg}
+                />
+            </TouchableWithoutFeedback>
             <View style={s.optionCar}>
                 <OptionsCar
                     onPressLock={onPressLock}
@@ -87,7 +108,7 @@ const s = StyleSheet.create({
         paddingRight: 30,
         marginBottom: 10,
     },
-    aboutCar: { gap: 8 },
+    aboutCar: {gap: 8},
     carName: {
         color: "#FFF",
         fontSize: 28,
@@ -126,4 +147,5 @@ const s = StyleSheet.create({
         marginBottom: 55,
     },
 });
+
 export default HomePage;

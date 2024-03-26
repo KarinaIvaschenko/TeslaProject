@@ -1,27 +1,31 @@
-import {Text, TouchableOpacity, View, Image} from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import Slider from "@react-native-community/slider";
-import {useState} from "react";
 import stylesClimate from "./stylesClimate";
-import {useDispatch, useSelector} from "react-redux";
-import {RootStateType} from "../../redux/store";
-import {changeParamItem, toggleParamItem} from "../../redux/slices/statusClimate";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStateType } from "../../redux/store";
+import {
+    changeParamItem,
+    toggleParamItem,
+} from "../../redux/slices/statusClimate";
+import {useTranslation} from "react-i18next";
 
 const ClimateParamsHeat = () => {
-    const dispatch = useDispatch()
+    const { t } = useTranslation();
+    const dispatch = useDispatch();
     const params = useSelector((state: RootStateType) => state.climate.heat);
 
     const onPressBtnHeat = () => {
-        dispatch(toggleParamItem("heat"))
-    }
+        dispatch(toggleParamItem("heat"));
+    };
 
     const handleSliderChange = (newValue: number) => {
         if (params.status === "on") {
-            dispatch(changeParamItem({param: "heat", newValue}))
+            dispatch(changeParamItem({ param: "heat", newValue }));
         }
-    }
+    };
     return (
         <View style={stylesClimate.climateContainer}>
-            <Text style={stylesClimate.climateText}>Heat</Text>
+            <Text style={stylesClimate.climateText}>{t('climateCarPage.text.heat')}</Text>
             <TouchableOpacity
                 style={stylesClimate.climateSVG}
                 onPress={onPressBtnHeat}
@@ -54,7 +58,7 @@ const ClimateParamsHeat = () => {
             </TouchableOpacity>
             <View style={stylesClimate.climateSlider}>
                 <Slider
-                    style={{width: 200, height: 40}}
+                    style={{ width: 200, height: 40 }}
                     minimumValue={16}
                     maximumValue={30}
                     step={1}

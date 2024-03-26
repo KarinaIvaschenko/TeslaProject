@@ -1,0 +1,83 @@
+{
+  "lockPage": {
+    "buttons": {
+      "lockBtn": "Відкрити"
+    }
+  },
+  "unlockPage": {
+    "buttons": {
+      "lockBtn": "Закрити"
+    }
+  },
+  "optionsCar": {
+    "buttons": {
+      "btnLock": "Статус",
+      "btnClimate": "Клімат",
+      "btnCharge": "Зарядка",
+      "btnControl": "Контроль"
+    }
+  },
+  "openCarPage": {
+    "buttons": {
+      "lockBtn": "Відкрити авто",
+      "unlockBtn": "Закрити авто"
+    },
+    "text": {
+      "title": "СТАТУС АВТО"
+    }
+  },
+  "climateCarPage": {
+    "text": {
+      "title": "Клімат",
+      "ac": "AC",
+      "fan": "Вент",
+      "heat": "Тепл",
+      "auto": "Авто"
+    }
+  },
+  "chargeCarPage": {
+    "text": {
+      "title": "ЗАРЯДКА"
+    }
+  },
+  "controlCarPage": {
+    "text": {
+      "title": "КОНТРОЛЬ ДВЕРЕЙ",
+      "open": "Відкрити",
+      "close": "Закрити"
+    }
+  },
+  "cabinetPage": {
+    "text": {
+      "title": "Кабінет"
+    },
+    "buttons": {
+      "signIn": "Увійти",
+      "signUp": "Додати водія"
+    }
+  },
+  "signInPage": {
+    "buttons": {
+      "submit": "Відправити"
+    },
+    "text": {
+      "title": "КАБІНЕТ"
+    }
+  },
+  "signUpPage": {
+    "buttons": {
+      "submit": "Відправити"
+    },
+    "text": {
+      "title": "КАБІНЕТ"
+    }
+  },
+  "settingsPage": {
+    "buttons": {
+    },
+    "text": {
+      "title": "НАЛАШТУВАННЯ",
+      "body": "Оберіть свою мову"
+    }
+  }
+}

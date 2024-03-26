@@ -1,15 +1,18 @@
 import { FC, useState } from "react";
 import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Settings from "../components/Settings";
+import Entrance from "../components/Entrance";
 import ButtonLock from "../components/ButtonLock";
 import stylesBase from "../styles/styles";
 import { useDispatch } from "react-redux";
 import { toggleStatusApp } from "../redux/slices/statusCar";
+import {useTranslation} from "react-i18next";
+
 
 const UnlockPage: FC<any> = ({ navigation }) => {
     const [pressImg, setPressImg] = useState(false);
     const dispatch = useDispatch();
+    const { t } = useTranslation();
     const onPress = () => {
         navigation.navigate("LockPage");
         dispatch(toggleStatusApp());
@@ -30,8 +33,8 @@ const UnlockPage: FC<any> = ({ navigation }) => {
         >
             <View style={stylesBase.container}>
                 <View style={stylesBase.wrapper}>
-                    <Settings onPress={handleSettings} />
-                    <View style={s.carLight}>
+                    <Entrance onPress={handleSettings} />
+                    <View>
                         <TouchableOpacity onPress={handleImagePress}>
                             {pressImg ? (
                                 <View>
@@ -55,7 +58,7 @@ const UnlockPage: FC<any> = ({ navigation }) => {
                         style={s.unlockGradient}
                     >
                         <ButtonLock
-                            text="Lock"
+                            text={t('unlockPage.buttons.lockBtn')}
                             onPress={onPress}
                             img={require("../assets/lock.png")}
                         />
@@ -67,10 +70,6 @@ const UnlockPage: FC<any> = ({ navigation }) => {
 };
 
 const s = StyleSheet.create({
-    carLight: {
-        // marginTop: 130,
-        // marginBottom: 172,
-    },
     carLightText: {
         color: "#FFF",
         textAlign: "center",

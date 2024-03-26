@@ -3,6 +3,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
+import './i18n.ts';
+
+
 import LockPage from "./screens/LockPage";
 import UnlockPage from "./screens/UnlockPage";
 import HomePage from "./screens/HomePage";
@@ -13,6 +16,8 @@ import ControlCarPage from "./screens/ControlCarPage";
 import CabinetPage from "./screens/CabinetPage";
 import SignUpPage from "./screens/SignUpPage";
 import SignInPage from "./screens/SignInPage";
+import SettingsPage from "./screens/SettingsPage";
+
 
 export default function App() {
     const Stack = createNativeStackNavigator();
@@ -75,6 +80,11 @@ export default function App() {
                         <Stack.Screen
                             name="SignUpPage"
                             component={SignUpPage}
+                            options={{ headerShown: false }}
+                        />
+                        <Stack.Screen
+                            name="SettingsPage"
+                            component={SettingsPage}
                             options={{ headerShown: false }}
                         />
                     </Stack.Navigator>

@@ -14,11 +14,16 @@ import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import {changeForm} from "../redux/slices/usersSignUp";
 import {sendCandidateToSignUp} from "../api/signUp";
+import {useTranslation} from "react-i18next";
 
 const SignUpPage: FC<any> = ({navigation}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const onPressGoBack = () => {
         navigation.goBack();
+    };
+    const onPressSettings = () => {
+        navigation.navigate("SettingsPage");
     };
     const SignUpSchema = Yup.object().shape({
         email: Yup.string()
@@ -47,7 +52,7 @@ const SignUpPage: FC<any> = ({navigation}) => {
             style={stylesBase.containerGradient}
         >
             <View style={stylesBase.container}>
-                <TitlePages onPressGoBack={onPressGoBack} text="CABINET"/>
+                <TitlePages onPressGoBack={onPressGoBack} text={t('signInPage.text.title')} onPressSettings={onPressSettings}/>
                 <Formik
                     initialValues={{
                         email: "",
@@ -180,11 +185,15 @@ const SignUpPage: FC<any> = ({navigation}) => {
                                 </Text>
                             )}
                             <TouchableOpacity
-                                onPress={handleSubmit}
+                                onPress={() => {
+                                    handleSubmit()
+                                    //dispatch
+                                }
+                                }
                                 title="Submit"
                                 style={s.btn}
                             >
-                                <Text style={s.btnText}>Submit</Text>
+                                <Text style={s.btnText}>{t('signInPage.buttons.submit')}</Text>
                             </TouchableOpacity>
                         </View>
                     )}

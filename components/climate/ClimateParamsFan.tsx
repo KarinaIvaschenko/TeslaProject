@@ -4,8 +4,10 @@ import stylesClimate from "./stylesClimate";
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../redux/store";
 import {changeParamItem, toggleParamItem} from "../../redux/slices/statusClimate";
+import {useTranslation} from "react-i18next";
 
 const ClimateParamsFan = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch()
     const params = useSelector((state: RootStateType) => state.climate.fan);
 
@@ -19,7 +21,7 @@ const ClimateParamsFan = () => {
     }
     return (
         <View style={stylesClimate.climateContainer}>
-            <Text style={stylesClimate.climateText}>Fan</Text>
+            <Text style={stylesClimate.climateText}>{t('climateCarPage.text.fan')}</Text>
             <TouchableOpacity
                 style={stylesClimate.climateSVG}
                 onPress={onPressBtnFan}

@@ -1,0 +1,83 @@
+{
+  "lockPage": {
+    "buttons": {
+      "lockBtn": "Unlock"
+    }
+  },
+  "unlockPage": {
+    "buttons": {
+      "lockBtn": "Lock"
+    }
+  },
+  "optionsCar": {
+    "buttons": {
+      "btnLock": "Lock",
+      "btnClimate": "Climate",
+      "btnCharge": "Charge",
+      "btnControl": "Control"
+    }
+  },
+  "openCarPage": {
+    "buttons": {
+      "lockBtn": "Open car",
+      "unlockBtn": "Close car"
+    },
+    "text": {
+      "title": "STATUS CAR"
+    }
+  },
+  "climateCarPage": {
+    "text": {
+      "title": "CLIMATE",
+      "ac": "AC",
+      "fan": "Fan",
+      "heat": "Heat",
+      "auto": "Auto"
+    }
+  },
+  "chargeCarPage": {
+    "text": {
+      "title": "CHARGING"
+    }
+  },
+  "controlCarPage": {
+    "text": {
+      "title": "DOORS CONTROL",
+      "open": "Open",
+      "close": "Close"
+    }
+  },
+  "cabinetPage": {
+    "text": {
+      "title": "CABINET"
+    },
+    "buttons": {
+      "signIn": "Sign in",
+      "signUp": "Add driver"
+    }
+  },
+  "signInPage": {
+    "buttons": {
+      "submit": "Submit"
+    },
+    "text": {
+      "title": "CABINET"
+    }
+  },
+  "signUpPage": {
+    "buttons": {
+      "submit": "Submit"
+    },
+    "text": {
+      "title": "CABINET"
+    }
+  },
+  "settingsPage": {
+    "buttons": {
+    },
+    "text": {
+      "title": "SETTINGS",
+      "body": "Choose your language"
+    }
+  }
+}

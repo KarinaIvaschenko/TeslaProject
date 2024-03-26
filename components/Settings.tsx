@@ -1,14 +1,13 @@
-import {FC} from "react";
-import {TouchableWithoutFeedback, Image, StyleSheet} from "react-native";
+import { FC } from "react";
+import { TouchableWithoutFeedback, Image, StyleSheet } from "react-native";
 
 interface ISettings {
     onPress: () => void;
 }
 
-const Settings: FC<any> = ({onPress}) => {
-
+const Settings: FC<ISettings> = ({ onPress }) => {
     return (
-        <TouchableWithoutFeedback style={s.settings} onPress={onPress}>
+        <TouchableWithoutFeedback onPress={onPress}>
             <Image
                 source={require("../assets/button.png")}
                 style={s.settingsImg}
@@ -18,10 +17,6 @@ const Settings: FC<any> = ({onPress}) => {
 };
 
 const s = StyleSheet.create({
-    // settings: {
-    //     width: 72,
-    //     height: 72,
-    // },
     settingsImg: {
         alignSelf: "flex-end",
         width: 72,

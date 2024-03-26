@@ -6,7 +6,6 @@ const stylesBase = StyleSheet.create({
         height: "100%",
         paddingLeft: 30,
         paddingRight: 30,
-        // marginTop: 25, // test
     },
     containerGradient: {
         width: "100%",
@@ -15,7 +14,7 @@ const stylesBase = StyleSheet.create({
         paddingBottom: 25,
     },
     wrapper: {
-        paddingTop: 25, // test
+        paddingTop: 25,
         width: "100%",
         display: "flex",
         flexDirection: "column",

@@ -1,7 +1,8 @@
-import { FC, useEffect } from "react";
+import {FC, useEffect} from "react";
+import {useTranslation} from "react-i18next";
 import stylesBase from "../styles/styles";
 import TitlePages from "../components/TitlePages";
-import { LinearGradient } from "expo-linear-gradient";
+import {LinearGradient} from "expo-linear-gradient";
 import {
     StyleSheet,
     Text,
@@ -9,20 +10,15 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
-import { Formik } from "formik";
+import {Formik} from "formik";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import {
-    driverForm,
-    getToken,
-    getTokenUser,
-} from "../redux/slices/usersSignIn";
-import { getCandidate } from "../api/signIn";
-import { getCurrentUser, getUser } from "../redux/slices/currentUser";
-import { instance } from "../api/instance";
-import { setToken } from "../utils/tokens";
+import {useDispatch, useSelector} from "react-redux";
+import {driverForm, getTokenUser} from "../redux/slices/usersSignIn";
+import {getCurrentUser} from "../redux/slices/currentUser";
+import {setToken} from "../utils/tokens";
 
-const SignInPage: FC<any> = ({ navigation }) => {
+const SignInPage: FC<any> = ({navigation}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const token = useSelector((state) => state.signIn.token);
 
@@ -37,6 +33,9 @@ const SignInPage: FC<any> = ({ navigation }) => {
     const onPressGoBack = () => {
         navigation.goBack();
     };
+    const onPressSettings = () => {
+        navigation.navigate("SettingsPage");
+    };
     const SignInSchema = Yup.object().shape({
         loginOrEmail: Yup.string().required("Login or Email is required"),
         password: Yup.string().required("Password is required"),
@@ -45,12 +44,12 @@ const SignInPage: FC<any> = ({ navigation }) => {
         <LinearGradient
             colors={["#292C31", "#292C31", "#2D2C31"]}
             locations={[0, 0.7287, 1]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
             style={stylesBase.containerGradient}
         >
             <View style={stylesBase.container}>
-                <TitlePages onPressGoBack={onPressGoBack} text="CABINET" />
+                <TitlePages onPressGoBack={onPressGoBack} text={t('signInPage.text.title')} onPressSettings={onPressSettings}/>
                 <Formik
                     initialValues={{
                         loginOrEmail: "",
@@ -62,13 +61,13 @@ const SignInPage: FC<any> = ({ navigation }) => {
                     validationSchema={SignInSchema}
                 >
                     {({
-                        handleChange,
-                        handleBlur,
-                        handleSubmit,
-                        values,
-                        errors,
-                        touched,
-                    }) => (
+                          handleChange,
+                          handleBlur,
+                          handleSubmit,
+                          values,
+                          errors,
+                          touched,
+                      }) => (
                         <View style={s.inputContainer}>
                             <TextInput
                                 onChangeText={(newText) => {
@@ -87,7 +86,7 @@ const SignInPage: FC<any> = ({ navigation }) => {
                                 style={s.input}
                             />
                             {errors.loginOrEmail && touched.loginOrEmail && (
-                                <Text style={{ color: "red" }}>
+                                <Text style={{color: "red"}}>
                                     {errors.loginOrEmail}
                                 </Text>
                             )}
@@ -108,7 +107,7 @@ const SignInPage: FC<any> = ({ navigation }) => {
                                 style={s.input}
                             />
                             {errors.password && touched.password && (
-                                <Text style={{ color: "red" }}>
+                                <Text style={{color: "red"}}>
                                     {errors.password}
                                 </Text>
                             )}
@@ -117,7 +116,7 @@ const SignInPage: FC<any> = ({ navigation }) => {
                                 title="Submit"
                                 style={s.btn}
                             >
-                                <Text style={s.btnText}>Submit</Text>
+                                <Text style={s.btnText}>{t('signInPage.buttons.submit')}</Text>
                             </TouchableOpacity>
                         </View>
                     )}

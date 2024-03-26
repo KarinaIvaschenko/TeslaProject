@@ -1,19 +1,19 @@
-import { View, Text, StyleSheet } from "react-native";
+import {View, Text, StyleSheet} from "react-native";
 import ButtonBack from "./ButtonBack";
 import Settings from "./Settings";
-import { FC } from "react";
+import {FC} from "react";
 
 interface ITitlePages {
     onPressGoBack: () => void;
-    text: string;
+    text: () => void | string;
 }
 
-const TitlePages: FC<ITitlePages> = ({ onPressGoBack, text }) => {
+const TitlePages: FC<ITitlePages> = ({onPressGoBack, text, onPressSettings}) => {
     return (
         <View style={s.titleContainer}>
-            <ButtonBack onPress={onPressGoBack} />
+            <ButtonBack onPress={onPressGoBack}/>
             <Text style={s.titleText}>{text}</Text>
-            <Settings onPress={onPressGoBack} />
+            <Settings onPress={onPressSettings}/>
         </View>
     );
 };

@@ -1,0 +1,83 @@
+{
+  "lockPage": {
+    "buttons": {
+      "lockBtn": "Öffnen"
+    }
+  },
+  "unlockPage": {
+    "buttons": {
+      "lockBtn": "Sperren"
+    }
+  },
+  "optionsCar": {
+    "buttons": {
+      "btnLock": "Sperren",
+      "btnClimate": "Klima",
+      "btnCharge": "Aufladung",
+      "btnControl": "Kontrolle"
+    }
+  },
+  "openCarPage": {
+    "buttons": {
+      "lockBtn": "Auto öffnen",
+      "unlockBtn": "Auto schließen"
+    },
+    "text": {
+      "title": "AUTOSTATUS"
+    }
+  },
+  "climateCarPage": {
+    "text": {
+      "title": "KLIMA",
+      "ac": "AC",
+      "fan": "Lüft",
+      "heat": "Hitz",
+      "auto": "Auto"
+    }
+  },
+  "chargeCarPage": {
+    "text": {
+      "title": "AUFLADEN"
+    }
+  },
+  "controlCarPage": {
+    "text": {
+      "title": "TÜRSTEUERUNG",
+      "open": "Offen",
+      "close": "Schließen"
+    }
+  },
+  "cabinetPage": {
+    "text": {
+      "title": "KABINETT"
+    },
+    "buttons": {
+      "signIn": "Anmelden",
+      "signUp": "Treiber hinzufügen"
+    }
+  },
+  "signInPage": {
+    "buttons": {
+      "submit": "Einreichen"
+    },
+    "text": {
+      "title": "KABINETT"
+    }
+  },
+  "signUpPage": {
+    "buttons": {
+      "submit": "Einreichen"
+    },
+    "text": {
+      "title": "KABINETT"
+    }
+  },
+  "settingsPage": {
+    "buttons": {
+    },
+    "text": {
+      "title": "EINSTELLUNGEN",
+      "body": "Wähle deine Sprache"
+    }
+  }
+}
